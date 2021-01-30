@@ -1,0 +1,41 @@
+.profileCont {
+  min-width: 15rem;
+  min-height: 15rem;
+  width: 30%;
+  background-color: white;
+  border-radius: 1rem;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border: 1px solid black;
+}
+
+.profileImage {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  padding: 5px;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.info {
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.info b {
+  color: grey;
+}

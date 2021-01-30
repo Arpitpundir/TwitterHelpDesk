@@ -1,0 +1,36 @@
+.tweet__green {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 7px;
+  border: solid 1px #e6ecf0;
+  color: #484648;
+  margin: 5px 5px;
+  padding: 10px 5px;
+  background-color: rgb(246, 255, 233);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);
+  border: 1px solid black;
+}
+
+.tweet__red {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 7px;
+  border: solid 1px #e6ecf0;
+  color: #484648;
+  margin: 5px 5px;
+  padding: 10px 5px;
+  background-color: rgb(255, 240, 206);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.19), 0 3px 3px rgba(0, 0, 0, 0.23);
+  border: 1px solid black;
+}
+.tweet:hover,
+tweet--active {
+  background-color: #e6ecf0;
+  color: #484648;
+}
