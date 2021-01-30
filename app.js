@@ -105,7 +105,7 @@ app.post("/webhook/twitter", async function (request, response) {
 
 app.use("/api/auth", AuthRouter);
 app.use("/api/user", UserRouter);
-/*
+
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
@@ -113,7 +113,7 @@ app.get("*", (req, res) => {
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
-*/
+
 app.use(globalErrorHandler);
 
 module.exports = app;
