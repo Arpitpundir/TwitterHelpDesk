@@ -37,7 +37,7 @@ const TweetFeed = (props) => {
       addTweet(tweet, tweetsRef.current, setTweets);
     };
     let socket;
-    socket = socketIOClient("http://localhost:5000/");
+    socket = socketIOClient("https://twitterhelpdesk73.herokuapp.com/");
     socket.on("tweet", handler);
     return () => {
       socket.off("tweet", handler);
