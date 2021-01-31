@@ -4,8 +4,6 @@ const axios = require("axios");
 const twitter = require("twitter");
 
 exports.replyToTweet = catchAsync(async (req, res, next) => {
-  console.log(req.body, res.locals);
-
   var client = new twitter({
     consumer_key: process.env.API_KEY,
     consumer_secret: process.env.API_KEY_SECRET,
@@ -27,15 +25,4 @@ exports.replyToTweet = catchAsync(async (req, res, next) => {
       console.log(error);
     }
   });
-  /*
-  await axios(
-    generateAxiosParameters(
-      `https://api.twitter.com/1.1/statuses/update.json?status=${encodeURIComponent(
-        req.body.replyText
-      )}`,
-      "POST",
-      res.locals.accessToken,
-      res.locals.accesSecret
-    )
-  );*/
 });

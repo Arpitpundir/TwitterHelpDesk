@@ -1,13 +1,11 @@
-var express = require("express");
-var path = require("path");
-var logger = require("morgan");
-var app = express();
-
-const axios = require("axios");
-const { generateAxiosParameters } = require("./utils/axiosParameter");
+const express = require("express");
+const path = require("path");
+const logger = require("morgan");
+const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+//connecting to db
 dotenv.config({ path: "./config.env" });
 const DB = process.env.DATABASE.replace(
   "<password>",
@@ -23,9 +21,6 @@ mongoose
   .then(() => console.log("DB connection successful!"));
 
 const port = process.env.PORT || 5000;
-//let { server } = require("./server");
-const authController = require("./controllers/authController");
-const userController = require("./controllers/userController");
 const globalErrorHandler = require("./controllers/errorController");
 const AppError = require("./utils/AppError");
 const UserRouter = require("./routes/userRoutes");
@@ -72,6 +67,7 @@ app.use(function (req, res, next) {
 });
 app.use(express.static("client/build"));
 
+//crc requests from twitter handler
 app.get("/webhook/twitter", function (request, response) {
   var crc_token = request.query.crc_token;
   console.log("-----------------", crc_token);
@@ -91,15 +87,10 @@ app.get("/webhook/twitter", function (request, response) {
   }
 });
 
+//post requests for tweets
 app.post("/webhook/twitter", async function (request, response) {
-  console.log(request.body); //.tweet_create_events[0].user);
-
-  //add this tweet maker information on the data sent to the client
-
   const newTweetUserId = request.body.tweet_create_events[0].id;
-  console.log(newTweetUserId);
   socket.emit("tweet", request.body);
-
   response.send("200 OK");
 });
 

@@ -9,9 +9,6 @@ router.get(
   webhookController.registerWebhook,
   webhookController.subscribeUser
 );
-router.get("/twitter/callback", authController.getAccessToken);
-//router.get("/logout", authController.logout);
-//router.get("/state", authController.isLoggedIn);
-//router.get("/verify", authController.verify);
 
+router.get("/twitter/callback", authController.getAccessToken);
 module.exports = router;
