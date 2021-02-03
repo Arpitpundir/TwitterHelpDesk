@@ -18,21 +18,21 @@ const TweetFeed = (props) => {
 
   useEffect(() => {
     // This effect executes on every render (no dependency array specified).
-    // Any change to the "participants" state will trigger a re-render
-    // which will then cause this effect to capture the current "participants"
-    // value in "participantsRef.current".
+    // Any change to the "tweet" state will trigger a re-render
+    // which will then cause this effect to capture the current "tweet"
+    // value in "tweetRef.current".
     tweetsRef.current = tweets;
   });
 
   useEffect(() => {
     // This effect only executes on the initial render so that we aren't setting
-    // up the socket repeatedly. This means it can't reliably refer to "participants"
-    // because once "setParticipants" is called this would be looking at a stale
-    // "participants" reference (it would forever see the initial value of the
-    // "participants" state since it isn't in the dependency array).
-    // "participantsRef", on the other hand, will be stable across re-renders and
-    // "participantsRef.current" successfully provides the up-to-date value of
-    // "participants" (due to the other effect updating the ref).
+    // up the socket repeatedly. This means it can't reliably refer to "tweet"
+    // because once "settweet" is called this would be looking at a stale
+    // "tweet" reference (it would forever see the initial value of the
+    // "tweet" state since it isn't in the dependency array).
+    // "tweetRef", on the other hand, will be stable across re-renders and
+    // "tweetRef.current" successfully provides the up-to-date value of
+    // "tweet" (due to the other effect updating the ref).
     const handler = (tweet) => {
       addTweet(tweet, tweetsRef.current, setTweets);
     };
